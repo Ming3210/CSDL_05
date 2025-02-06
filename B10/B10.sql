@@ -99,8 +99,11 @@ left join patients p on a.PatientID = p.PatientID
 left join doctors d on a.DoctorID = d.DoctorID
 left join medicalrecords m on a.PatientID = m.PatientID and a.DoctorID = m.DoctorID
 order by a.AppointmentDate;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 770bbcbe8daef6ad18173a9dbcff213358bc9a65
     
 select
     p.FullName as PatientName,
