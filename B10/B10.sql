@@ -90,7 +90,17 @@ VALUES
     (8, 8, 'Hen Suyen', 'Su dung thuoc xit hen hang ngay, tranh tiep xuc bui ban.'),
     (9, 9, 'Gay Xuong', 'Bo bot, kiem tra xuong dinh ky, vat ly tri lieu sau khi thao bot.');
     
-    
+select 
+concat(p.FullName, ' (', year(a.AppointmentDate) - year(p.DateOfBirth), ') - ', d.FullName) as PatientName_DoctorName,
+a.AppointmentDate,
+m.Diagnosis
+from appointments a
+left join patients p on a.PatientID = p.PatientID
+left join doctors d on a.DoctorID = d.DoctorID
+left join medicalrecords m on a.PatientID = m.PatientID and a.DoctorID = m.DoctorID
+order by a.AppointmentDate;
+
+
     
 select
     p.FullName as PatientName,
